@@ -147,8 +147,7 @@ public class CharacterHandler : MonoBehaviour
         //current experience divided by the posistion on screen and timesed by the total max experience
 
        
-        //GUI Draw Texture on the screen that has the mini map render texture attached
-        GUI.DrawTexture(new Rect(13.75f * scrW, 0.25f * scrH, 2 * scrW, 2 * scrH), miniMap);
+
     }
     #endregion
 

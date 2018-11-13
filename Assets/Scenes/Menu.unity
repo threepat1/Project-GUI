@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1721,13 +1721,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0, y: 0.058473248, z: -0, w: 0.998289}
-  m_LocalPosition: {x: -2.155, y: 0.63, z: -24.435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -18.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 6.7040005, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!92 &534669906
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 644859082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: -4}
+  m_LocalPosition: {x: -3.01, y: -1.49, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 654030302}
@@ -2515,6 +2515,7 @@ GameObject:
   - component: {fileID: 801310523}
   - component: {fileID: 801310522}
   - component: {fileID: 801310521}
+  - component: {fileID: 801310525}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -2535,10 +2536,10 @@ RectTransform:
   m_Father: {fileID: 2012875857}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: 129}
-  m_SizeDelta: {x: 500, y: 97.4}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -48.699997}
+  m_SizeDelta: {x: 0, y: 97.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801310521
 MonoBehaviour:
@@ -2589,7 +2590,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b612301b8634b45428bc786eda37a5e3, type: 3}
-    m_FontSize: 60
+    m_FontSize: 65
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2608,6 +2609,24 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 801310519}
   m_CullTransparentMesh: 0
+--- !u!95 &801310525
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 801310519}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 859015342d1b66245972d2ca89a721e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &814690599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6368,6 +6387,7 @@ GameObject:
   - component: {fileID: 1959542282}
   - component: {fileID: 1959542285}
   - component: {fileID: 1959542284}
+  - component: {fileID: 1959542286}
   m_Layer: 0
   m_Name: Name 1
   m_TagString: Untagged
@@ -6388,10 +6408,10 @@ RectTransform:
   m_Father: {fileID: 2012875857}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 133.70001}
-  m_SizeDelta: {x: 500, y: 97.4}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -7.700012, y: -48.700012}
+  m_SizeDelta: {x: -15.3, y: 97.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959542282
 MonoBehaviour:
@@ -6414,7 +6434,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b612301b8634b45428bc786eda37a5e3, type: 3}
-    m_FontSize: 60
+    m_FontSize: 65
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -6461,6 +6481,24 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.6156863}
   m_EffectDistance: {x: 5, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!95 &1959542286
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959542280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d12caa8316fa670468d832d383dda93c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1971590792
 GameObject:
   m_ObjectHideFlags: 0
@@ -11686,7 +11724,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2035889626}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.23, y: -5.97, z: -16.65}
+  m_LocalPosition: {x: 0.23, y: 0.06, z: -16.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
