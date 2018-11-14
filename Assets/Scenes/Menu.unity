@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1620,7 +1620,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: db900b4e718e2b6419e49349c61d8130, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 524047a5aa1bd684f99e832b3eb42a32, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2538,8 +2538,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -48.699997}
-  m_SizeDelta: {x: 0, y: 97.399994}
+  m_AnchoredPosition: {x: 0, y: -62.2}
+  m_SizeDelta: {x: 0, y: 124.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801310521
 MonoBehaviour:
@@ -2595,7 +2595,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 70
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6410,8 +6410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.700012, y: -48.700012}
-  m_SizeDelta: {x: -15.3, y: 97.4}
+  m_AnchoredPosition: {x: -7.700012, y: -62.200012}
+  m_SizeDelta: {x: -15.3, y: 124.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959542282
 MonoBehaviour:
@@ -6439,7 +6439,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 70
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -11961,12 +11961,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9a9c986ce8a203c4a87d427ac4df795e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca76fc968dcb34947a00e74746500655, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 5.1, y: 3.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -11979,8 +11979,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087715361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.230011, y: 1, z: -10.07}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.578, y: 1.566, z: -10.07}
+  m_LocalScale: {x: 3.3531713, y: 2.780226, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
