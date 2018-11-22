@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class TimerClock : MonoBehaviour {
  
-    public float timer;
   
 
     public Text counterText;
    
-    public float seconds;
+    public float mins, seconds;
 	void Start () {
         counterText = GetComponent<Text>() as Text;
 
@@ -21,10 +20,10 @@ public class TimerClock : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-       
-       
-        seconds = (int)(Time.time);
-        counterText.text = "Time :" + 
+
+        int mins = Mathf.FloorToInt(Time.time / 60);
+        int seconds = Mathf.FloorToInt(Time.time - mins * 60);
+        counterText.text = "Time" +("\n") + mins.ToString("00") + (":") +
             seconds.ToString("00");
      
     }

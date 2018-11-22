@@ -69,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Play the hurt sound effect.
         // Get UI to shake
-        uiShake.ShakeUI(15f, 0.25f);
+        uiShake.ShakeUI(15f, 1f);
 
 
         //StartCoroutine(Shaking());

@@ -51,8 +51,9 @@ public class PauseMenu : MonoBehaviour {
     {
         
         pauseMenu.SetActive(false);
+        optionMenu.SetActive(false);
         Time.timeScale = 1f;
-        player.GetComponent<CharacterMovement>().enabled = true;
+        player.GetComponent<Controller>().enabled = true;
         player.GetComponent<MouseLook>().enabled = true;
         mainCam.GetComponent<MouseLook>().enabled = true;
         GameIsPaused = false;
@@ -63,9 +64,10 @@ public class PauseMenu : MonoBehaviour {
     {
         
         pauseMenu.SetActive(true);
+        optionMenu.SetActive(false);
         Time.timeScale = 0f;
 
-        player.GetComponent<CharacterMovement>().enabled = false;
+        player.GetComponent<Controller>().enabled = false;
         player.GetComponent<MouseLook>().enabled = false;
         mainCam.GetComponent<MouseLook>().enabled = false;
         GameIsPaused = true;
@@ -120,8 +122,8 @@ public class PauseMenu : MonoBehaviour {
             
             pauseMenu.SetActive(false);
             optionMenu.SetActive(true);
-            soundSlider = GameObject.Find("AudioSlider").GetComponent<Slider>();
-            lightSlider = GameObject.Find("Brightness").GetComponent<Slider>();
+            soundSlider = GameObject.Find("SoundSlider").GetComponent<Slider>();
+            lightSlider = GameObject.Find("BrightnessSlider").GetComponent<Slider>();
             
             soundSlider.value = soundAudio.volume;
             lightSlider.value = dirLight.intensity;

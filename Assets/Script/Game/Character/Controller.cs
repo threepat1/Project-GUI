@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
-public class CharacterMovement : MonoBehaviour
+using System.Collections;
+
+
+
+public class Controller : MonoBehaviour
 {
     [Header("MOVEMENT VARIABLES")]
     [Space(10)]
     [Header("Mini Header")]
-    [Range(0f,10f)]
+    [Range(0f, 10f)]
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
@@ -24,22 +26,21 @@ public class CharacterMovement : MonoBehaviour
          */
     }
 
-    void Update ()
+    void Update()
     {
-
         if (controller.isGrounded)
         {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
             moveDirection = transform.TransformDirection(moveDirection);
 
             moveDirection *= speed;
-            if(Input.GetButton("Jump"))
+            if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
             }
         }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
-	}
+    }
 }
