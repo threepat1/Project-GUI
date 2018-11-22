@@ -11,9 +11,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
-    public AudioClip deathclip;
     public AudioSource audioSource;
-    
+    public UIShake uiShake;
 
     //  Animator anim;                                              // Reference to the Animator component.
     // Reference to the AudioSource component.
@@ -32,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
         // Set the initial health of the player.
         currentHealth = startingHealth;
         currentHealth = 100;
+        
     }
 
 
@@ -40,7 +40,6 @@ public class PlayerHealth : MonoBehaviour
         // If the player has just been damaged...
         if (damaged)
         {
-
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
         }
@@ -69,7 +68,11 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = currentHealth;
 
         // Play the hurt sound effect.
+        // Get UI to shake
+        uiShake.ShakeUI(15f, 0.25f);
 
+
+        //StartCoroutine(Shaking());
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
         if (currentHealth <= 0 && !isDead)
@@ -78,7 +81,10 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
     }
-
+    //IEnumerator Shaking(Vector2 targetPos)
+    //{
+    //    
+    //}
 
     void Death()
     {
@@ -91,8 +97,8 @@ public class PlayerHealth : MonoBehaviour
       //  anim.SetTrigger("Die");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        audioSource.clip = deathClip;
-        audioSource.Play();
+       //  audioSource.clip = deathClip;
+       // audioSource.Play();
 
         // Turn off the movement and shooting scripts.
         playerMovement.enabled = false;

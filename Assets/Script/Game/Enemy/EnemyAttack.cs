@@ -21,18 +21,20 @@ public class EnemyAttack : MonoBehaviour
         // Setting up the references.
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
-       // enemyHealth = GetComponent<EnemyHealth>();
+        // enemyHealth = GetComponent<EnemyHealth>();
        // anim = GetComponent<Animator>();
     }
 
 
     void OnTriggerEnter(Collider other)
     {
+        print(other.gameObject.tag);
         // If the entering collider is the player...
-        if (other.gameObject == player)
+        if (other.gameObject.tag == "Player")
         {
             // ... the player is in range.
             playerInRange = true;
+            
         }
     }
 
@@ -40,11 +42,12 @@ public class EnemyAttack : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         // If the exiting collider is the player...
-        if (other.gameObject == player)
+        if (other.gameObject.tag == "Player")
         {
             // ... the player is no longer in range.
             playerInRange = false;
         }
+        
     }
 
 
@@ -54,7 +57,7 @@ public class EnemyAttack : MonoBehaviour
         timer += Time.deltaTime;
 
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-        if (timer >= timeBetweenAttacks && playerInRange)// && enemyHealth.currentHealth > 0
+        if (timer >= timeBetweenAttacks && playerInRange) // && enemyHealth.currentHealth > 0
         {
             // ... attack.
             Attack();
@@ -64,7 +67,7 @@ public class EnemyAttack : MonoBehaviour
         if (playerHealth.currentHealth <= 0)
         {
             // ... tell the animator the player is dead.
-            anim.SetTrigger("PlayerDead");
+          //  anim.SetTrigger("PlayerDead");
         }
     }
 
@@ -73,7 +76,7 @@ public class EnemyAttack : MonoBehaviour
     {
         // Reset the timer.
         timer = 0f;
-
+        
         // If the player has health to lose...
         if (playerHealth.currentHealth > 0)
         {
