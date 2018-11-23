@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<KeyData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <forward>T</forward>
+  <backward>G</backward>
+  <left>F</left>
+  <right>H</right>
+  <jump>B</jump>
+  <sprint>None</sprint>
+  <fire>None</fire>
+  <test>None</test>
+</KeyData>

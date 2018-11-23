@@ -30,11 +30,10 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<CharacterController>();
         // Set the initial health of the player.
         currentHealth = startingHealth;
-        currentHealth = 100;
+        
         
     }
-
-
+   
     void Update()
     {
         // If the player has just been damaged...
@@ -65,14 +64,17 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
 
         // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
+        healthSlider.value = currentHealth ;
 
         // Play the hurt sound effect.
         // Get UI to shake
         uiShake.ShakeUI(15f, 1f);
 
+        if (currentHealth <=20)
 
-        //StartCoroutine(Shaking());
+        {
+
+        }
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
         if (currentHealth <= 0 && !isDead)
@@ -81,10 +83,7 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
     }
-    //IEnumerator Shaking(Vector2 targetPos)
-    //{
-    //    
-    //}
+  
 
     void Death()
     {

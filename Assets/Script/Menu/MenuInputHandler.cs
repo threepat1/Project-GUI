@@ -4,21 +4,22 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;//interacting with scene change
 using UnityEngine.UI;//interacting with GUI elements
 using UnityEngine.EventSystems;//control the event (this is needed to save keybindings)
-
+using TMPro;
 using System.Xml.Serialization;
 using System.IO;
 using System;
 
 public class KeyData
 {
-    public Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
+    public KeyCode forward, backward, left, right, jump, sprint, fire, test;
 }
 
 public class MenuInputHandler : MonoBehaviour
 {
     #region Variables
     [Header("Keys")]
-
+    private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
+    private GameObject currentKey;
     [Header("KeyBind References")]
     public Text forwardText;
     public Text backwardText;
@@ -27,25 +28,30 @@ public class MenuInputHandler : MonoBehaviour
     public Text rightText;
 
     [Header("File Saving")]
-    public string fileName;
+    public string fullPath;
+    public string fileName = "GameData";
 
+    public static MenuInputHandler instance = null;
     
-    private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    private GameObject currentKey;
 
-    private KeyData saveData;
+    private KeyData saveData = new KeyData();
     #endregion
 
     #region Start
-    void Start()
+    void Awake()
     {
+        instance = this;
         // Here, the key bindings are set to what is stored in the save file. If it is unable to find the stored (KeyCode), then the named input is set to a defined default KeyCode.
-        string fullPath = Application.dataPath + "/Data/" + fileName + ".xml";
+        fullPath = Application.dataPath + "/SaveData/Data/" + fileName + ".xml";
         if (File.Exists(fullPath))
         {
             // Load it
-            saveData = Load();
-            keys = saveData.keys;
+            Load();
+            forwardText.text = keys["Forward"].ToString();
+            backwardText.text = keys["Backward"].ToString();
+            jumpText.text = keys["Jump"].ToString();
+            leftText.text = keys["Left"].ToString();
+            rightText.text = keys["Right"].ToString();
         }
         else
         {
@@ -58,14 +64,15 @@ public class MenuInputHandler : MonoBehaviour
             keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
         }
 
-        forwardText.text = keys["Forward"].ToString();
-        backwardText.text = keys["Backward"].ToString();
-        jumpText.text = keys["Jump"].ToString();
-        leftText.text = keys["Left"].ToString();
-        rightText.text = keys["Right"].ToString();
+     
 
     }
     #endregion
+    private void OnDestroy()
+    {
+        instance = null;
+        Save();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(keys["Forward"]))
@@ -87,49 +94,60 @@ public class MenuInputHandler : MonoBehaviour
                 keys[currentKey.name] = e.keyCode;
                 currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                 currentKey = null;
-                // Save the keys array
-                Save();
+               
             }
         }
     }
     #endregion
-    #region Key
+    #region Save&Load
 
-    void Save()
+    public void Save()
     {
-        string path = Application.dataPath + "/Data/" + fileName + ".xml";
+        
         var serializer = new XmlSerializer(typeof(KeyData));
-        using (var stream = new FileStream(path, FileMode.Create))
+        using (var stream = new FileStream(fullPath, FileMode.Create))
         {
             serializer.Serialize(stream, saveData);
         }
+        saveData.forward = keys["Forward"];
+        saveData.backward = keys["Backward"];
+        saveData.jump = keys["Jump"];
+        saveData.left = keys["Left"];
+        saveData.right = keys["Right"];
     }
 
-    KeyData Load()
+    public void Load()
     {
-        string path = Application.dataPath + "/Data/" + fileName + ".xml";
+      
 
         var serializer = new XmlSerializer(typeof(KeyData));
-        using (var stream = new FileStream(path, FileMode.Open))
+        using (var stream = new FileStream(fullPath, FileMode.Open))
         {
-            return serializer.Deserialize(stream) as KeyData;
+            saveData = serializer.Deserialize(stream) as KeyData;
         }
+        keys["Forward"] = saveData.forward;
+        keys["Backward"] = saveData.backward;
+        keys["Jump"] = saveData.jump;
+        keys["Left"] = saveData.left;
+        keys["Right"] = saveData.right;
     }
-
+    #endregion
+    #region Key
 
     public void Changekey(GameObject clicked)
     {
         currentKey = clicked;
     }
     #endregion
-    #region Save
    
-    public void SaveKey()
+
+    /*public void SaveKey()
     {
         foreach (var key in keys)
         { PlayerPrefs.SetString(key.Key, key.Value.ToString()); }
         PlayerPrefs.Save();
 
     }
-    #endregion
+    */
+    
 }
