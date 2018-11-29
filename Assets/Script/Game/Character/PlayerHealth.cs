@@ -68,13 +68,10 @@ public class PlayerHealth : MonoBehaviour
 
         // Play the hurt sound effect.
         // Get UI to shake
-        uiShake.ShakeUI(15f, 1f);
+        uiShake.ShakeUI(30f, 1f);
 
-        if (currentHealth <=20)
-
-        {
-
-        }
+        
+ 
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
         if (currentHealth <= 0 && !isDead)
@@ -89,18 +86,19 @@ public class PlayerHealth : MonoBehaviour
     {
         // Set the death flag so this function won't be called again.
         isDead = true;
-
+        Time.timeScale = 0f;
 
 
         // Tell the animator that the player is dead.
-      //  anim.SetTrigger("Die");
+        //  anim.SetTrigger("Die");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-       //  audioSource.clip = deathClip;
-       // audioSource.Play();
+        //  audioSource.clip = deathClip;
+        // audioSource.Play();
 
         // Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
+        
 
     }
 }

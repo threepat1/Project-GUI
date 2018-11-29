@@ -22,7 +22,7 @@ public class UIShake : MonoBehaviour
     bool isRunning = false; //Is the coroutine running right now?
 
     public bool smooth;//Smooth rotation?
-    public float smoothAmount = 10f;//Amount to smooth
+    public float smoothAmount = 20f;//Amount to smooth
 
     void Start()
     {
