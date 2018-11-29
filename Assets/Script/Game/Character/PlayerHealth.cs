@@ -13,8 +13,8 @@ public class PlayerHealth : MonoBehaviour
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
     public AudioSource audioSource;
     public UIShake uiShake;
-
-    //  Animator anim;                                              // Reference to the Animator component.
+   
+    public Animator anim;                                              // Reference to the Animator component.
     // Reference to the AudioSource component.
     CharacterController playerMovement;                         // Reference to the player's movement.
                              
@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     void Awake()
     {
         // Setting up the references.
-      //  anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
  
         playerMovement = GetComponent<CharacterController>();
         // Set the initial health of the player.
@@ -68,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Play the hurt sound effect.
         // Get UI to shake
-        uiShake.ShakeUI(30f, 1f);
+        uiShake.ShakeUI(20f, 1f);
 
         
  
@@ -88,9 +88,9 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         Time.timeScale = 0f;
 
-
+        anim.SetTrigger("Game Over");
         // Tell the animator that the player is dead.
-        //  anim.SetTrigger("Die");
+        
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
         //  audioSource.clip = deathClip;
@@ -98,7 +98,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
+       
         
-
     }
 }
