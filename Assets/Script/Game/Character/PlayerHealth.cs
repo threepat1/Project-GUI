@@ -13,7 +13,9 @@ public class PlayerHealth : MonoBehaviour
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
     public AudioSource audioSource;
     public UIShake uiShake;
-   
+    public Text timeText;
+
+    public GameObject gameOver;
     public Animator anim;                                              // Reference to the Animator component.
     // Reference to the AudioSource component.
     CharacterController playerMovement;                         // Reference to the player's movement.
@@ -21,6 +23,9 @@ public class PlayerHealth : MonoBehaviour
     bool isDead;                                                // Whether the player is dead.
     bool damaged;                                               // True when the player gets damaged.
 
+
+    public float lerpSpeed;
+    public float colorSpeed;
 
     void Awake()
     {
@@ -36,6 +41,22 @@ public class PlayerHealth : MonoBehaviour
    
     void Update()
     {
+        if (currentHealth >= 10)
+        {
+            if (currentHealth != healthSlider.value)
+            {
+                // Set the health bar's value to the current health.
+                healthSlider.value = Mathf.Lerp(healthSlider.value, currentHealth, Time.deltaTime * lerpSpeed);
+            }
+        }
+        else
+        {
+            
+            healthSlider.value = currentHealth;
+            
+
+        }
+
         // If the player has just been damaged...
         if (damaged)
         {
@@ -51,6 +72,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Reset the damaged flag.
         damaged = false;
+        
     }
  
 
@@ -63,8 +85,8 @@ public class PlayerHealth : MonoBehaviour
         // Reduce the current health by the damage amount.
         currentHealth -= amount;
 
-        // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth ;
+        
+      
 
         // Play the hurt sound effect.
         // Get UI to shake
@@ -86,10 +108,12 @@ public class PlayerHealth : MonoBehaviour
     {
         // Set the death flag so this function won't be called again.
         isDead = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
-        anim.SetTrigger("Game Over");
-        // Tell the animator that the player is dead.
+        uiShake.gameObject.SetActive(false);
+        gameOver.SetActive(true);
+        anim.SetBool("GameOver", true);
+        
         
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).

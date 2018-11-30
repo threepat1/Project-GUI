@@ -3357,8 +3357,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: c0270ecaff893e3448f24ad2e36a607a,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ac5d1f6632ffe634d94b046019557aea, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5456,14 +5457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa857610c8df26a44a6048f8098c87ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentKey: {fileID: 0}
-  forwardText: {fileID: 0}
-  backwardText: {fileID: 0}
-  jumpText: {fileID: 0}
-  leftText: {fileID: 0}
-  rightText: {fileID: 0}
-  fullPath: 
-  fileName: GameData
 --- !u!1 &2035889626
 GameObject:
   m_ObjectHideFlags: 0

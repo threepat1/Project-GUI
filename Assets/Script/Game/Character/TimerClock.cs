@@ -15,7 +15,7 @@ public class TimerClock : MonoBehaviour {
         counterText = GetComponent<Text>() as Text;
         counterText.text = "Time" + ("\n") + ("00") + (":") +
            ("00");
-
+        return;
     }
 	
 	// Update is called once per frame
